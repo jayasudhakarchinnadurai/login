@@ -3,7 +3,9 @@ const userModel=require("../schema/userschmea.js")
 const {passwordhase,passwordcheck, createtoken, validate,}=require("../auth.js")
 
 
-
+useRouter.get("/login",(req,res)=>{
+    res.send("successful depoly your database")
+})
 useRouter.get("/data" ,validate ,async(req, res)=>{
 
 try {
@@ -53,7 +55,7 @@ useRouter.get("/user",async(req,res)=>{
                 message:"login faild"
             })
         }
-        
+    
     } catch (error) {
         res.send({
             message:"internal server error"
