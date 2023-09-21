@@ -45,7 +45,7 @@ useRouter.get("/user",async(req,res)=>{
         
 
         if(check == true ){
-            res.send({
+            res.status(201).send({
                 message:"login sucessful",
                 token
             })
