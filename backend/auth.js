@@ -8,6 +8,11 @@ const passwordhase= async(password)=>{
 
 }
 
+const passwordupdate =async(password)=>{
+    const data = bcrypt.genSaltSync(10);
+    const value = bcrypt.hashSync(password,data);
+    return value
+}
 const passwordcheck=async(password,hase)=>{
     const hased=bcrypt.compareSync(password,hase)
     return hased
@@ -46,4 +51,4 @@ const validate =async(req, res, next)=>{
 
 
 
-module.exports={passwordhase,passwordcheck,createtoken,validate}
+module.exports={passwordhase,passwordcheck,createtoken,validate,passwordupdate}

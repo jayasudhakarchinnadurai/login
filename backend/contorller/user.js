@@ -1,11 +1,9 @@
-  const useRouter = require("express").Router();
+const useRouter = require("express").Router();
 const userModel=require("../schema/userschmea.js")
-const {passwordhase,passwordcheck, createtoken, validate,}=require("../auth.js")
+const {passwordhase,passwordcheck, createtoken, validate, passwordupdate}=require("../auth.js")
 
 
-useRouter.get("/login",(req,res)=>{
-    res.send("successful depoly your database")
-})
+
 useRouter.get("/data" ,validate ,async(req, res)=>{
 
 try {
@@ -47,7 +45,7 @@ useRouter.get("/user",async(req,res)=>{
         if(check == true ){
             res.status(201).send({
                 message:"login sucessful",
-                token
+                data:token
             })
 
         }else{
@@ -88,6 +86,27 @@ useRouter.post("/createuser", async(req,res)=>{
 
 })
 
+useRouter.patch("/edit", async(req,res)=>{
+    try {
+        const {email,password}=req.body
+        const user= await userModel.findOne({email:email});
+        const updatepass= await passwordupdate(password)
+        const edit =  await userModel.findByIdAndUpdate(user.id,
+            {$set:
+            {
+            
+          password:updatepass
+           }})
+           res.send({
+            message:"update succesfull",
+            data:edit
 
+           })
+
+    } catch (error) {
+        
+    }
+
+})
 
 module.exports=useRouter;

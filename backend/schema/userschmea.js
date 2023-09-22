@@ -29,5 +29,5 @@ const userSechema=mongoose.Schema({
 
 )
 
-const user =mongoose.model("customer",userSechema);
+const user =mongoose.model("userrecord",userSechema);
 module.exports=user
