@@ -29,7 +29,7 @@ try {
 
 
 
-useRouter.get("/user",async(req,res)=>{
+useRouter.post("/user",async(req,res)=>{
     const {email, password}=req.body
     
     try {
@@ -104,6 +104,7 @@ useRouter.patch("/edit", async(req,res)=>{
            })
 
     } catch (error) {
+        console.log(error)
         
     }
 
