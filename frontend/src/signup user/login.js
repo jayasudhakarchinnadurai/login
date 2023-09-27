@@ -1,30 +1,56 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+// import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 
 function Login(){
-    const history=useHistory();
-    const [logemail,setlogemail]=useState("")
-    const [logpass,setlogpass]=useState('')
-    const logindata=async()=>{
-      const loginuser={
-        eamil:logemail,
-        password:logpass
+    // const history=useHistory();
+    let [email,setlogemail]=useState("")
+    let [password,setlogpass]=useState('')
+
+    const createuser = async(e)=>{
+    
+      const newuser={
+         
+          email,
+          password
       }
-      try {
-        const res = await fetch ("https://develogin.onrender.com/api/user",{
-              method:"GET",
-              body:JSON.stringify(loginuser),
-             
+     
+      e.preventDefault()
+      
+  try {
+  
+          const response = await fetch ("http://localhost:1800/api/user",{
+              method:"POST",
+              body:JSON.stringify(newuser),
+              headers:{
+                  "Content-Type":"application/json"
+              }
           })
-        const data= await res.json();
-        console.log(data)
-      } catch (error) {
-        console.log(error)
+          const data = await  response.json();
+          console.log(data)
+         
+      
+  } catch (error) {
+  
+      console.log(error)
+  }
+  
+  
       }
-    }
+
+
+
+
+
+
+
+
+
+
+   
+   
    
     return(
     <div>
@@ -42,7 +68,7 @@ function Login(){
         <Form.Label className="pass-in">password</Form.Label><br></br>
         <Form.Control  placeholder="password" className="pass-value" onChange={(e)=>setlogpass(e.target.value)} />
         </Form.Group><br></br>
-        <Button variant="primary" onClick={logindata} className="log-btn" >
+        <Button variant="primary" onClick={createuser} className="log-btn" >
         Login
       </Button>
 
@@ -50,7 +76,7 @@ function Login(){
         <a href='/forgot' className="a">Forgot Password?</a>
         </div>
       <div className="signup">
-        <button onClick={()=>history.push("/create")}>sign up</button>
+        <button onClick={createuser}>sign up</button>
       </div>
         </div>
     )

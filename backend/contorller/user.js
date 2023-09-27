@@ -40,19 +40,15 @@ useRouter.post("/user",async(req,res)=>{
             email:user.email,
             id:user._id
         })
-        
-
-        if(check == true ){
-            res.status(201).send({
-                message:"login sucessful",
+        if(check == true){
+            res.status(200).send({
+                message:"success full",
                 data:token
             })
-
-        }else{
-            res.send({
-                message:"login faild"
-            })
         }
+
+
+        
     
     } catch (error) {
         res.send({
