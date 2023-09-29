@@ -1,56 +1,53 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { toast } from "react-toastify";
 
 
 function Login(){
-    // const history=useHistory();
+    const history=useHistory();
     let [email,setlogemail]=useState("")
     let [password,setlogpass]=useState('')
 
-    const createuser = async(e)=>{
+    const loginuser = async(e)=>{
     
-      const newuser={
-         
+      e.preventDefault();
+      const userlogin={
           email,
           password
       }
      
-      e.preventDefault()
+     
       
   try {
   
-          const response = await fetch ("http://localhost:1800/api/user",{
+          const response = await fetch("http://localhost:1800/api/user",{
               method:"POST",
-              body:JSON.stringify(newuser),
+              body:JSON.stringify(userlogin),
               headers:{
                   "Content-Type":"application/json"
               }
           })
-          const data = await  response.json();
-          console.log(data)
+         const data = await response.json();
          
+          
+          if(data.message === "password wrong" ){
+            toast.error(data.message)
+          }else if(data.message === "login successfull"){
+            sessionStorage.setItem("token" ,data.token)
+            toast.success(data.message)
+            history.push("/dash")
+          }else{
+            toast.error(data.message)
+          }
+          
+      } catch (error) {
+   toast.error(error)
       
-  } catch (error) {
-  
-      console.log(error)
   }
-  
-  
       }
 
-
-
-
-
-
-
-
-
-
-   
-   
    
     return(
     <div>
@@ -68,7 +65,7 @@ function Login(){
         <Form.Label className="pass-in">password</Form.Label><br></br>
         <Form.Control  placeholder="password" className="pass-value" onChange={(e)=>setlogpass(e.target.value)} />
         </Form.Group><br></br>
-        <Button variant="primary" onClick={createuser} className="log-btn" >
+        <Button variant="primary" onClick={loginuser} className="log-btn" >
         Login
       </Button>
 
@@ -76,7 +73,7 @@ function Login(){
         <a href='/forgot' className="a">Forgot Password?</a>
         </div>
       <div className="signup">
-        <button onClick={createuser}>sign up</button>
+        <button onClick={()=>history.push("/create")}>sign up</button>
       </div>
         </div>
     )

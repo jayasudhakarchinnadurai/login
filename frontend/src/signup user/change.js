@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import{toast} from "react-toastify"
 
 
 function Change ({foremail}){
@@ -17,7 +18,7 @@ function Change ({foremail}){
      }
     
         try {
-            const res = await fetch ("https://develogin.onrender.com/api/edit",{
+            const res = await fetch ("http://localhost:1800/api/edit",{
               method:"PATCH",
               body:JSON.stringify(edituser),
               headers:{
@@ -26,8 +27,9 @@ function Change ({foremail}){
           })
             const value=  await res.json()
             console.log(value)
+            toast.success(value.message)
         } catch (error) {
-            console.log(error)
+          toast.error(error)  
             
         }
 

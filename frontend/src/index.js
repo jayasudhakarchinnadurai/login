@@ -4,11 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import{BrowserRouter as Router} from "react-router-dom"
+import { ToastContainer } from 'react-toastify';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
     <App />
+    <ToastContainer
+       position="top-right"
+       autoClose={1000}
+       closeOnClick
+       pauseOnFocusLoss
+       pauseOnHover
+       theme="light"
+
+      />
+
+<ToastContainer />
   </Router>
 );
 

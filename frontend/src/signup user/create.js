@@ -1,9 +1,13 @@
 
 import React from "react"; 
 import { useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function Create (){
+    const history=useHistory();
 
     const [name, setname]=useState("")
     const [email,setemail]=useState("")
@@ -19,25 +23,37 @@ const createuser = async(e)=>{
     }
    
     e.preventDefault()
-    
+   
 try {
 
-        const response = await fetch ("https://develogin.onrender.com/api/createuser",{
+    
+        const response = await fetch ("http://localhost:1800/api/createuser",{
             method:"POST",
             body:JSON.stringify(newuser),
             headers:{
                 "Content-Type":"application/json"
             }
         })
-        const data = await  response.json();
-        console.log(data)
-        setname("");
-        setemail("")
-        setpassword("")
-    
-} catch (error) {
+        const data=await  response.json()
 
-    console.log(error)
+        
+        if(data.message === "sign up successful"){
+            toast.success(data.message)
+            history.push("/")
+        }else if(data.message === "its email already taken"){
+
+            toast.error(data.message)
+        }
+       setname("")
+       setemail("")
+       setpassword("")
+        
+    }
+        
+    
+catch (error) {
+ toast.error(error)
+    
 }
 
 

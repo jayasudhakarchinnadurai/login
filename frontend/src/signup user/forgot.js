@@ -1,21 +1,60 @@
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { toast } from "react-toastify";
+
+
+
 // import { useState } from 'react';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
+
+
 function Forgot ({foremail,setforemail}){
-    const history=useHistory()
+    const history=useHistory();
+
     
-    
+        const getemail =async(e)=>{
+            const useremail={
+              email:foremail
+            }
+            console.log(useremail)
+
+            e.preventDefault()
+
+
+            try {
+                const response = await fetch("http://localhost:1800/api/check",{
+                method:"POST",
+                body:JSON.stringify(useremail),
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            })
+            const data = await response.json();
+            console.log(data)
+            if(data.message === "fetch successful"){
+                toast.success(data.message)
+                history.push("/change")
+
+            }else if(data.message === "invaild email") {
+                toast.error(data.message)
+
+            }
+                
+            } catch (error) {
+            toast.error(error)
+            }
+            
+           
+           
+         }
+       
+
    
-// const editpassword=(e)=>{
-//     e.preventDefault()
-//     console.log(foremail)
-//     setforemail("")
-// }
-    return(
+    
+ return(
         <div  className="login">
 
     <Form>
@@ -26,7 +65,7 @@ function Forgot ({foremail,setforemail}){
          onChange={(e)=>setforemail(e.target.value)} />
 
         </Form.Group><br></br>
-        <Button variant="primary" onClick={()=>history.push("/change")} className="sub-btn" value={foremail} >
+        <Button variant="primary" onClick={getemail} className="sub-btn" value={foremail} >
         submit
       </Button>
 

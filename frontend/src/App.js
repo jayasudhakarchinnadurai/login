@@ -5,6 +5,7 @@ import Create from './signup user/create.js';
 import Forgot from './signup user/forgot.js';
 import Change from './signup user/change.js';
 import { useState } from 'react';
+import Dash from './signup user/dash';
 
 
 function App() { 
@@ -31,6 +32,10 @@ function App() {
         <Create></Create>
       </Route>
 
+      
+      <Route exact path="/dash">
+       <Dash/>
+      </Route>
 
     </Switch>
     </div>

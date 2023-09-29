@@ -21,7 +21,7 @@ const passwordcheck=async(password,hase)=>{
 const privateKey="adouipnaiooehzlaso"
 
 const createtoken=(payload)=>{
-    const token = jwt.sign(payload,privateKey,{expiresIn:"2m"})
+    const token = jwt.sign(payload,privateKey,{expiresIn:"7m"})
     return  token
 }
 
