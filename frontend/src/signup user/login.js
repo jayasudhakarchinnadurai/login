@@ -53,19 +53,19 @@ function Login(){
     <div>
         <div className="login">
         <Form>
-        <Form.Group  controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label className="pass-in">Email</Form.Label><br></br>
         <Form.Control type="email" placeholder="Enter email"
-         className="pass-value" 
+         className="log-email"
          onChange={(e)=>setlogemail(e.target.value)}/>
         </Form.Group><br></br>
 
        
-        <Form.Group  controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label className="pass-in">password</Form.Label><br></br>
-        <Form.Control  placeholder="password" className="pass-value" onChange={(e)=>setlogpass(e.target.value)} />
+        <Form.Control  placeholder="password"  onChange={(e)=>setlogpass(e.target.value)} />
         </Form.Group><br></br>
-        <Button variant="primary" onClick={loginuser} className="log-btn" >
+        <Button variant="primary" onClick={loginuser}  >
         Login
       </Button>
 

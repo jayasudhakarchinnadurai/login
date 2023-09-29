@@ -21,7 +21,7 @@ const passwordcheck=async(password,hase)=>{
 const privateKey="adouipnaiooehzlaso"
 
 const createtoken=(payload)=>{
-    const token = jwt.sign(payload,privateKey,{expiresIn:"7m"})
+    const token = jwt.sign(payload,privateKey,{expiresIn:"8m"})
     return  token
 }
 
@@ -35,7 +35,7 @@ const validate =async(req, res, next)=>{
         }
        
         else{
-         res.status(402).send({
+         res.status(401).send({
          message:"token expried"})
             }
        

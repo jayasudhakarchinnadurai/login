@@ -58,8 +58,8 @@ function Forgot ({foremail,setforemail}){
         <div  className="login">
 
     <Form>
-        <Form.Group  controlId="formBasicEmail">
-        <Form.Label className="sub-in">Email your email</Form.Label><br></br>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label className="pass-in">Email your email</Form.Label><br></br>
 
         <Form.Control type="email" placeholder="Enter email" className="pass-value" 
          onChange={(e)=>setforemail(e.target.value)} />

@@ -5,6 +5,7 @@ position: relative;
 
 }
 
+
 .signup{
     position: absolute;
     top: 10px;
@@ -20,7 +21,7 @@ position: relative;
 .log-btn{
     height: 40px;
     width: 300px;
-    background-color: rgb(165, 165, 230);
+    
     color: white;
     font-family: 'Times New Roman', Times, serif;
     font-size: larger;
@@ -30,19 +31,7 @@ position: relative;
     outline: none;
     border: none;
 }
-.sub-btn{
-    height: 40px;
-    width: 300px;
-    background-color: rgb(165, 165, 230);
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: larger;
-    border-radius: 10px;
-    align-items: center;
-    justify-content: center;
-    outline: none;
-    border: none;
-}
+
 .sub-in{
     position: relative;
     right: 100px;
@@ -54,6 +43,62 @@ position: relative;
 }
 
 
+
+
+.pass-value{
+height: 30px;
+width: 300px;
+
+border:none;
+outline: none;
+border-radius: 3px;
+
+}
+
+.log-email{
+    background-color: rgb(160, 209, 209);
+
+}
+
+.change-in{
+    position: relative;
+    right: 70px;
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 0;
+
+   
+}
+
+.table{
+    position: relative;
+    top: 40px;
+}
+.logout-btn{
+top: 10px; 
+position: absolute;
+right:100px;
+ border-radius: 6px; 
+ border: none;
+ color: black;
+ 
+}
+.signup-btn{
+    top: 10px; 
+    position: absolute;
+    right:20px;
+     border-radius: 6px; 
+     border: none;
+     color: black;
+     
+    }
+
+.mb-3{
+    width: 350px;
+    position: relative;
+    left: 500px;
+}
+
 .pass-in{
     position: relative;
     right: 120px;
@@ -64,24 +109,36 @@ position: relative;
    
 }
 
-.pass-value{
-height: 30px;
-width: 300px;
-background-color: rgb(160, 209, 209);
-border:none;
-outline: none;
-border-radius: 3px;
 
+.sub-btn{
+    height: 40px;
+    width: 350px;
+    background-color: rgb(165, 165, 230);
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
 }
 
-
-
-.change-in{
+.createuser{
     position: relative;
-    right: 70px;
-    font-size: medium;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 0;
+    top: 200px;
+    left: 500px;
+    
+    
+}
 
-   
+.cre-input{
+    width: 300px;
+}
+
+.create-btn{
+    width: 200px;
+    border: none;
+    position: relative;
+    left:50px;
 }

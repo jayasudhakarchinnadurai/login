@@ -42,7 +42,7 @@ history.push('/')
         <div  className="login">
 
     <Form>
-        <Form.Group  controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label className="change-in"> Enter your new password</Form.Label><br></br>
 
         <Form.Control type="email" 

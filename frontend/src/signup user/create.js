@@ -59,20 +59,24 @@ catch (error) {
 
     }
     return (
-        <div>
+        <div className="createuser">
+            <h4>create user data</h4>
             <input 
+            className="cre-input"
             onChange={(e)=>setname(e.target.value)} 
             value={name}
-            placeholder="name"/>
+            placeholder="name"/><br></br><br></br>
             <input 
+            className="cre-input"
             onChange={(e)=>setemail(e.target.value)}
             value={email}
-            placeholder="email"/>
-            <input 
+            placeholder="email"/><br></br><br></br>
+            <input
+            className="cre-input" 
             onChange={(e)=>setpassword(e.target.value)}
             value={password}
-             placeholder="password"/>
-            <button onClick={createuser}>click</button>
+             placeholder="password"/><br></br><br></br>
+            <button onClick={createuser} className="create-btn">click</button>
 
         </div>
     )
