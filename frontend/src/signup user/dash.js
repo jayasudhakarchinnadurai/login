@@ -66,7 +66,7 @@ function Dash(){
           <div>
           <button onClick={logout} className="logout-btn">logout</button>
           <button  onClick={()=>history.push("/create")} className="signup-btn">Sign up</button><br></br>
-
+           <p>total user:{user.length}</p>
           </div>
           
           <Table striped bordered hover className="table">
@@ -87,7 +87,7 @@ function Dash(){
         </tr> */}
         {user.map((e,idx)=>{
          return <tr>
-            <td key={idx}>{idx}</td>
+            <td key={idx}>{idx+1}</td>
             <td>{e.name}</td>
             <td>{e.email}</td>
             <td>{e.createdAt.slice(0,10)}</td>

@@ -30,9 +30,7 @@ function Login(){
               }
           })
          const data = await response.json();
-         
-          
-          if(data.message === "password wrong" ){
+         if(data.message === "password wrong" ){
             toast.error(data.message)
           }else if(data.message === "login successfull"){
             sessionStorage.setItem("token" ,data.token)
@@ -54,18 +52,16 @@ function Login(){
         <div className="login">
         <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label className="pass-in">Email</Form.Label><br></br>
+        <Form.Label className="pass-in">Email</Form.Label>
         <Form.Control type="email" placeholder="Enter email"
          className="log-email"
          onChange={(e)=>setlogemail(e.target.value)}/>
-        </Form.Group><br></br>
-
-       
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        </Form.Group>
+       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label className="pass-in">password</Form.Label><br></br>
-        <Form.Control  placeholder="password"  onChange={(e)=>setlogpass(e.target.value)} />
+        <Form.Control  type="password" placeholder="password"  onChange={(e)=>setlogpass(e.target.value)} />
         </Form.Group><br></br>
-        <Button variant="primary" onClick={loginuser}  >
+        <Button variant="primary" className="login-btn" onClick={loginuser}  >
         Login
       </Button>
 

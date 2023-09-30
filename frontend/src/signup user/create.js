@@ -4,12 +4,13 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import Form from 'react-bootstrap/Form';
 
 function Create (){
     const history=useHistory();
 
-    const [name, setname]=useState("")
+    const [fristname, setfirstname]=useState("")
+    const[lastname,setlastname]=useState("")
     const [email,setemail]=useState("")
     const [password,setpassword]= useState("") 
    
@@ -17,7 +18,7 @@ function Create (){
 const createuser = async(e)=>{
     
     const newuser={
-        name,
+        name:fristname+lastname,
         email,
         password
     }
@@ -44,7 +45,8 @@ try {
 
             toast.error(data.message)
         }
-       setname("")
+       setfirstname("")
+       setlastname("")
        setemail("")
        setpassword("")
         
@@ -60,23 +62,38 @@ catch (error) {
     }
     return (
         <div className="createuser">
-            <h4>create user data</h4>
-            <input 
-            className="cre-input"
-            onChange={(e)=>setname(e.target.value)} 
-            value={name}
-            placeholder="name"/><br></br><br></br>
-            <input 
-            className="cre-input"
-            onChange={(e)=>setemail(e.target.value)}
-            value={email}
-            placeholder="email"/><br></br><br></br>
-            <input
-            className="cre-input" 
-            onChange={(e)=>setpassword(e.target.value)}
-            value={password}
-             placeholder="password"/><br></br><br></br>
-            <button onClick={createuser} className="create-btn">click</button>
+           
+
+    <Form.Group className="mb-3">
+        <Form.Label>First Name:</Form.Label>
+        <Form.Control onChange={(e)=>setfirstname(e.target.value)} 
+            value={fristname}
+            placeholder="first name"  />
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label>last Name:</Form.Label>
+        <Form.Control placeholder="last name" onChange={(e)=>setlastname(e.target.value)} 
+          value={lastname}
+        />
+      </Form.Group>
+
+   <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label >Email</Form.Label>
+        <Form.Control type="email" placeholder="Enter email"
+         className="log-email"  onChange={(e)=>setemail(e.target.value)}
+         value={email}
+        />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label >password</Form.Label><br></br>
+        <Form.Control  type="password" placeholder="password" 
+        onChange={(e)=>setpassword(e.target.value)}
+        value={password}  />
+        </Form.Group>
+  
+        <button onClick={createuser} className="create-btn">Sign up</button> 
 
         </div>
     )

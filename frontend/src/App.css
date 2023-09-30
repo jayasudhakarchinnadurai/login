@@ -126,8 +126,8 @@ right:100px;
 
 .createuser{
     position: relative;
-    top: 200px;
-    left: 500px;
+    top: 30px;
+    left: 20px;
     
     
 }
@@ -137,8 +137,16 @@ right:100px;
 }
 
 .create-btn{
-    width: 200px;
+    width: 150px;
     border: none;
     position: relative;
-    left:50px;
+    left: 600px;
+    border-radius: 7px;
+    color: black;
+    background-color: green;
+}
+
+
+.log-button{
+    width: 300px;
 }
