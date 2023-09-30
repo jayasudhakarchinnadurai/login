@@ -28,7 +28,7 @@ const createuser = async(e)=>{
 try {
 
     
-        const response = await fetch ("http://localhost:1800/api/createuser",{
+        const response = await fetch ("https://develogin.onrender.com/api/createuser",{
             method:"POST",
             body:JSON.stringify(newuser),
             headers:{

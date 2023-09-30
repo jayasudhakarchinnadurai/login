@@ -23,7 +23,7 @@ function Dash(){
             
     
                 try {
-                 const response = await fetch("http://localhost:1800/api/data",{
+                 const response = await fetch("https://develogin.onrender.com/api/data",{
                      method:"GET",
                      headers:{
                          Authorization: `Bearer ${token}`
@@ -66,7 +66,8 @@ function Dash(){
           <div>
           <button onClick={logout} className="logout-btn">logout</button>
           <button  onClick={()=>history.push("/create")} className="signup-btn">Sign up</button><br></br>
-           <p>total user:{user.length}</p>
+            <h4 className="dash">Dash Borad</h4> 
+           <h6 className="total">Total User:{" "}{user.length}</h6>
           </div>
           
           <Table striped bordered hover className="table">
@@ -79,12 +80,7 @@ function Dash(){
         </tr>
       </thead>
       <tbody>
-        {/* <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr> */}
+       
         {user.map((e,idx)=>{
          return <tr>
             <td key={idx}>{idx+1}</td>

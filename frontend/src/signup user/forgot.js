@@ -25,7 +25,7 @@ function Forgot ({foremail,setforemail}){
 
 
             try {
-                const response = await fetch("http://localhost:1800/api/check",{
+                const response = await fetch("https://develogin.onrender.com/api/check",{
                 method:"POST",
                 body:JSON.stringify(useremail),
                 headers:{

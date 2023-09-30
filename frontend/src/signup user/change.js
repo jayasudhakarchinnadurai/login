@@ -18,7 +18,7 @@ function Change ({foremail}){
      }
     
         try {
-            const res = await fetch ("http://localhost:1800/api/edit",{
+            const res = await fetch ("https://develogin.onrender.com/api/edit",{
               method:"PATCH",
               body:JSON.stringify(edituser),
               headers:{
