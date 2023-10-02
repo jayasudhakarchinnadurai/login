@@ -6,6 +6,8 @@ import Forgot from './signup user/forgot.js';
 import Change from './signup user/change.js';
 import { useState } from 'react';
 import Dash from './signup user/dash';
+import Creaturl from './signup user/creaturl';
+import Dashurl from './signup user/urldash';
 
 
 function App() { 
@@ -18,6 +20,16 @@ function App() {
       <Route exact path="/">
        <Login/>
       </Route>
+
+
+      <Route  path="/creaturl">
+       <Creaturl/>
+      </Route>
+
+      <Route path="/dashurl">
+       <Dashurl/>
+      </Route>
+
       <Route path="/forgot">
        <Forgot  foremail={foremail} setforemail={setforemail} />
       </Route>

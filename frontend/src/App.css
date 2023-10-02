@@ -111,6 +111,8 @@ right:100px;
 
 
 .sub-btn{
+    position: relative;
+    left: 500px;
     height: 40px;
     width: 350px;
     background-color: rgb(165, 165, 230);

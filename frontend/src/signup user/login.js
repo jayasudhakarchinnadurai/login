@@ -35,7 +35,7 @@ function Login(){
           }else if(data.message === "login successfull"){
             sessionStorage.setItem("token" ,data.token)
             toast.success(data.message)
-            history.push("/dash")
+            history.push("/dashurl")
           }else{
             toast.error(data.message)
           }
@@ -49,6 +49,7 @@ function Login(){
    
     return(
     <div>
+      <button onClick={()=>history.push("/creaturl")}>shorturl</button>
         <div className="login">
         <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
