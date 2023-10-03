@@ -25,13 +25,14 @@ shortrouter.post("/createurl", async(req,res)=>{
 
 shortrouter.get("/geturl",async(req,res)=>{
     
-
-    try {
-        const shorturl= await ShortModel.find()
+  try {
+        const geturl= await ShortModel.find()
+        
         res.send({
             message:"success full ",
-            shorturl
+            geturl
         })
+       
     } catch (error) {
         console.log(error)
         
@@ -40,6 +41,22 @@ shortrouter.get("/geturl",async(req,res)=>{
 
 })
 
+shortrouter.get("/:shorturl",async(req,res)=>{
+    
+   try {
+       const userurl = await ShortModel.findOne({shorturl:req.params.shorturl})   
+       userurl.clicks++
+       userurl.save()
+      res.redirect(userurl.full)
 
+       
+   } catch (error) {
+    res.status(500).send({
+        message:"internal server error"
+    })
+    
+   }
+
+})
 
 module.exports=shortrouter

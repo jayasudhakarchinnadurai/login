@@ -3,15 +3,17 @@ import Table from 'react-bootstrap/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Dashurl(){
-    const [dataurl,setdataurl]=useState();
+    const [dataurl,setdataurl]=useState([]);
+    const url="http://localhost:1800/api/"
  useEffect(()=>{
     const geturl =async ()=>{
         try {
            const response = await fetch("http://localhost:1800/api/geturl",{
             method:"GET",
            }) 
-           const data = response.json();
-           setdataurl(data.shorturl)
+           const data = await response.json();
+           setdataurl(data.geturl)
+           console.log(data.geturl)
            
         } catch (error) {
             console.log(error)
@@ -40,7 +42,7 @@ function Dashurl(){
          return <tr>
             <td key={idx}>{idx+1}</td>
             <td>{e.full}</td>
-            <td ><a href="{e.shorturl}">{e.shorturl}</a></td>
+            <td ><a href={url+e.shorturl}>{e.shorturl}</a></td>
             <td>{e.clicks}</td>
             <td>{e.createdAt.slice(0,10)}</td>
           </tr>
