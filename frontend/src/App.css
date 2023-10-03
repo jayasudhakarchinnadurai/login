@@ -1,162 +1,106 @@
-.login{
-position: relative;
- top: 150px;
- text-align: center;
-
-}
-
-
-.signup{
-    position: absolute;
-    top: 10px;
-    right: 30px;
-}
-.a{
-    text-decoration: none;
-    font-size: large;
-    font-family: 'Times New Roman', Times, serif;
-
-}
-
-.log-btn{
-    height: 40px;
-    width: 300px;
-    
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: larger;
-    border-radius: 10px;
-    align-items: center;
+.form-container {
+    display: flex;
     justify-content: center;
-    outline: none;
-    border: none;
-}
-
-.sub-in{
-    position: relative;
-    right: 100px;
-    font-size: medium;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 0;
-
-
-}
-
-
-
-
-.pass-value{
-height: 30px;
-width: 300px;
-
-border:none;
-outline: none;
-border-radius: 3px;
-
-}
-
-.log-email{
-    background-color: rgb(160, 209, 209);
-
-}
-
-.change-in{
-    position: relative;
-    right: 70px;
-    font-size: medium;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 0;
-
-   
-}
-
-.table{
-    position: relative;
-    top: 40px;
-}
-.logout-btn{
-top: 10px; 
-position: absolute;
-right:100px;
- border-radius: 6px; 
- border: none;
- color: black;
- 
-}
-.signup-btn{
-    top: 10px; 
-    position: absolute;
-    right:20px;
-     border-radius: 6px; 
-     border: none;
-     color: black;
-     
+    align-items: center;
+    min-height: 70vh; 
     }
 
-.mb-3{
-    width: 350px;
-    position: relative;
-    left: 500px;
-}
+    .creat-container{
+        display: grid;
+        justify-content: center;
+        grid-template-rows: auto auto auto auto;
+        align-items: center;
+        min-height: 70vh; 
+        padding: 10px;
+        margin: 10px;
 
-.pass-in{
-    position: relative;
-    right: 120px;
-    font-size: medium;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 0;
+    }
+  form {
+    width: 35%; 
+    
+  }
 
-   
-}
-
-
-.sub-btn{
-    position: relative;
-    left: 500px;
-    height: 40px;
-    width: 350px;
-    background-color: rgb(165, 165, 230);
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: larger;
-    border-radius: 10px;
+  .url-sub{
     align-items: center;
-    justify-content: center;
-    outline: none;
-    border: none;
-}
-
-.createuser{
     position: relative;
-    top: 30px;
-    left: 20px;
+    left: 500px;
+    bottom: 40px;
     
-    
+  }
+  .url-click{
+    align-items: center;
+    position: relative;
+    left: 500px;
+    bottom: 40px;
+    text-decoration: none;
+  }
+
+  
+.log-btn{
+   position: absolute;
+   top: 10px;
+   right:100px;
+   border-radius: 4px;
+   height: 30px;
+   width: 70px;
+   border: none;
+   background-color: aqua;
 }
 
-.cre-input{
-    width: 300px;
+.forgot-click{
+    font-size: large;
+    position: relative;
+    left: 150px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-btn{
+    width: 480px;
 }
 
 .create-btn{
-    width: 150px;
-    border: none;
     position: relative;
-    left: 600px;
-    border-radius: 7px;
-    color: black;
-    background-color: green;
+    left: 40px;
+    border-radius: 4px;
+   height: 30px;
+   width: 70px;
+   border: none;
+   background-color: aqua;
 }
 
-
-.log-button{
-    width: 300px;
+.for-btn{
+    position: relative;
+    
+    border-radius: 4px;
+    width: 480px;
+    border: none;
+   
 }
 
-.total{
-    text-align: center;
+.logout-btn{
+    position: absolute;
+    top: 10px;
+    right:100px;
+    border-radius: 4px;
+    height: 30px;
+    width: 70px;
+    border: none;
+    background-color: aqua;   
+}
+
+.sign-btn{
+    position: absolute;
+    top: 10px;
+    right:10px;
+    border-radius: 4px;
+    height: 30px;
+    width: 70px;
+    border: none;
+    background-color: aqua
+
 }
 
 .dash{
-    text-align: center;
+  text-align: center;
 }

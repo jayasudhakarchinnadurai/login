@@ -9,14 +9,14 @@ shortrouter.post("/createurl", async(req,res)=>{
         })
        await newshorturl.save();
        
-       res.send({
+       res.status(200).send({
         message:"create successfull",
         newshorturl
        })
 
         
     } catch (error) {
-        res.send({
+        res.status(500).send({
             message:'internal server error'
         })
     }

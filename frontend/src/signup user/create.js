@@ -61,32 +61,32 @@ catch (error) {
 
     }
     return (
-        <div className="createuser">
+        <div className="creat-container">
            
 
-    <Form.Group className="mb-3">
+    <Form.Group >
         <Form.Label>First Name:</Form.Label>
         <Form.Control onChange={(e)=>setfirstname(e.target.value)} 
             value={fristname}
             placeholder="first name"  />
       </Form.Group>
 
-      <Form.Group className="mb-3">
+      <Form.Group >
         <Form.Label>last Name:</Form.Label>
         <Form.Control placeholder="last name" onChange={(e)=>setlastname(e.target.value)} 
           value={lastname}
         />
       </Form.Group>
 
-   <Form.Group className="mb-3" controlId="formBasicEmail">
+   <Form.Group  controlId="formBasicEmail">
         <Form.Label >Email</Form.Label>
         <Form.Control type="email" placeholder="Enter email"
-         className="log-email"  onChange={(e)=>setemail(e.target.value)}
+          onChange={(e)=>setemail(e.target.value)}
          value={email}
         />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group  controlId="formBasicPassword">
         <Form.Label >password</Form.Label><br></br>
         <Form.Control  type="password" placeholder="password" 
         onChange={(e)=>setpassword(e.target.value)}

@@ -5,9 +5,9 @@ import Create from './signup user/create.js';
 import Forgot from './signup user/forgot.js';
 import Change from './signup user/change.js';
 import { useState } from 'react';
-import Dash from './signup user/dash';
-import Creaturl from './signup user/creaturl';
-import Dashurl from './signup user/urldash';
+import Dash from './signup user/dash.js';
+import Creaturl from './signup user/creaturl.js';
+import Dashurl from './signup user/urldash.js';
 
 
 function App() { 
@@ -16,16 +16,17 @@ function App() {
   return (
     <div className="App">
     <Switch>
+    <Route exact path="/">
+       <Creaturl/>
+      </Route>
 
-      <Route exact path="/">
+
+      <Route  path="/loginurl">
        <Login/>
       </Route>
 
 
-      <Route  path="/creaturl">
-       <Creaturl/>
-      </Route>
-
+      
       <Route path="/dashurl">
        <Dashurl/>
       </Route>

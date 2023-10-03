@@ -39,7 +39,7 @@ history.push('/')
     
     }
     return(
-        <div  className="login">
+        <div  className="creat-container">
 
     <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -52,7 +52,7 @@ history.push('/')
         onChange={(e)=>setchangepass(e.target.value)} />
 
         </Form.Group><br></br>
-        <Button variant="primary" onClick={changpassword} className="sub-btn" >
+        <Button variant="primary" onClick={changpassword} className="for-btn" >
         submit
       </Button>
 

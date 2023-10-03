@@ -1,11 +1,55 @@
 import React, { useEffect, useState } from "react";
 import Table from 'react-bootstrap/Table';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Dashurl(){
     const [dataurl,setdataurl]=useState([]);
     const url="http://localhost:1800/api/"
+    const history=useHistory();
+
+    const logout = ()=>{
+      sessionStorage.clear()
+      history.push("/")
+
+  }
  useEffect(()=>{
+  const token = sessionStorage.getItem('token')
+
+  if(token){
+      const getuser = async()=>{
+      
+
+          try {
+           const response = await fetch("https://develogin.onrender.com/api/data",{
+               method:"GET",
+               headers:{
+                   Authorization: `Bearer ${token}`
+               }
+               
+           })
+           const data = await response.json();
+           
+           
+           if(data.message === "token expried"){
+              logout()
+           }
+           
+           
+          } catch (error) {
+           console.log(error)
+           
+          }
+           
+       }
+           
+     
+     getuser();
+
+  }else{
+      logout();
+  }
+  
     const geturl =async ()=>{
         try {
            const response = await fetch("http://localhost:1800/api/geturl",{
@@ -25,6 +69,12 @@ function Dashurl(){
     
     return(
         <div>
+          <div>
+          <button onClick={logout} className="logout-btn">logout</button>
+          <button  onClick={()=>history.push("/create")} className="sign-btn">Sign up</button><br></br>
+            <h4 className="dash">Dash Borad</h4> 
+           <h6  className="dash">Total User:{" "}{dataurl.length}</h6>
+          </div>
           
           <Table striped bordered hover className="table">
       <thead>

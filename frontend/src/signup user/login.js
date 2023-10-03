@@ -49,28 +49,29 @@ function Login(){
    
     return(
     <div>
-      <button onClick={()=>history.push("/creaturl")}>shorturl</button>
-        <div className="login">
+     
+        <div className='form-container'>
         <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label className="pass-in">Email</Form.Label>
+
+        <Form.Group  controlId="formBasicEmail">
+        <Form.Label >Email</Form.Label>
         <Form.Control type="email" placeholder="Enter email"
-         className="log-email"
          onChange={(e)=>setlogemail(e.target.value)}/>
         </Form.Group>
-       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label className="pass-in">password</Form.Label><br></br>
+
+       <Form.Group  controlId="formBasicPassword">
+        <Form.Label >password</Form.Label><br></br>
         <Form.Control  type="password" placeholder="password"  onChange={(e)=>setlogpass(e.target.value)} />
         </Form.Group><br></br>
-        <Button variant="primary" className="login-btn" onClick={loginuser}  >
+        <Button variant="primary"  onClick={loginuser} className="login-btn" >
         Login
-      </Button>
-
-     </Form> <br></br>
-        <a href='/forgot' className="a">Forgot Password?</a>
-        </div>
+         </Button><br></br><br></br>
+         <a href='/forgot' className="forgot-click">Forgot Password?</a>
+      </Form> 
+    </div>
+    
       <div className="signup">
-        <button onClick={()=>history.push("/create")}>sign up</button>
+        <button className='log-btn' onClick={()=>history.push("/create")}>sign up</button>
       </div>
         </div>
     )
