@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Creaturl (){
-  const url="http://localhost:1800/api/"
+  const url="https://develogin.onrender.com/api/"
   const history=useHistory();
   const [weburl,setweburl]=useState("")
     const [shorturl, setshorturl]=useState("")
@@ -44,7 +44,7 @@ function Creaturl (){
 
         <Form.Control  placeholder="Enter url" 
         onChange={(e)=>setshorturl(e.target.value)} value={shorturl} />
-        </Form.Group>
+        </Form.Group><br></br>
 
 
         <Button variant="primary" onClick={creaturl} className='url-sub' value={shorturl} >

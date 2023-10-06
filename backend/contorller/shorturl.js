@@ -28,7 +28,7 @@ shortrouter.get("/geturl",async(req,res)=>{
   try {
         const geturl= await ShortModel.find()
         
-        res.send({
+         res.send({
             message:"success full ",
             geturl
         })

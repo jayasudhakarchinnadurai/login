@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Dashurl(){
     const [dataurl,setdataurl]=useState([]);
-    const url="http://localhost:1800/api/"
+    const url="https://develogin.onrender.com/api/"
     const history=useHistory();
 
     const logout = ()=>{
