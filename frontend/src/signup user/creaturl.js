@@ -24,7 +24,7 @@ function Creaturl (){
     })
     const data = await response.json();
     setweburl(data.newshorturl.shorturl)
-     
+    
   } catch (error) {
     console.log(error)
     
