@@ -66,7 +66,7 @@ function Login(){
         <Button variant="primary"  onClick={loginuser} className="login-btn" >
         Login
          </Button><br></br><br></br>
-         <a href='/forgot' className="forgot-click">Forgot Password?</a>
+         <a onClick={()=>history.push("/forgot")} className="forgot-click">Forgot Password?</a>
       </Form> 
     </div>
     

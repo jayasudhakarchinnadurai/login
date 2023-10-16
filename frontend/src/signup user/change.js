@@ -41,7 +41,7 @@ history.push('/')
     return(
         <div  className="creat-container">
 
-    <Form>
+    <Form className="passform">
         <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label className="change-in"> Enter your new password</Form.Label><br></br>
 
