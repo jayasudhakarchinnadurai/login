@@ -116,3 +116,11 @@
    border: none;
    background-color: aqua;
 }
+
+.create-input{
+  width: 240px;
+}
+
+.form{
+  width: 200px;
+}

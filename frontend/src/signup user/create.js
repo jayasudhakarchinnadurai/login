@@ -1,30 +1,49 @@
 
 import React from "react"; 
-import { useState } from "react";
+
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Form from 'react-bootstrap/Form';
+import *as yup from "yup";
+import {useFormik} from"formik"
+const userschemavalidation=yup.object({
+    firstname:yup.string().required("enter your firstname"),
+    lastname:yup.string().required("enter your lastname"),
+    email:yup.string().required("enter your email"),
+    password:yup.string().required("enter your password")
+
+})
 
 function Create (){
     const history=useHistory();
 
-    const [fristname, setfirstname]=useState("")
-    const[lastname,setlastname]=useState("")
-    const [email,setemail]=useState("")
-    const [password,setpassword]= useState("") 
+
+    const {values,handleChange, handleSubmit,errors}=useFormik({
+
+        initialValues:{
+            firstname:"",
+            lastname:"",
+            email:"",
+            password:""
+        },
+        validationSchema:userschemavalidation,
+        onSubmit:(newdata)=>{
+            createuser(newdata)
+
+        }
+    })
    
    
-const createuser = async(e)=>{
+const createuser = async(userdata)=>{
     
     const newuser={
-        name:fristname+lastname,
-        email,
-        password
+        name:userdata.firstname+userdata.lastname,
+        email:userdata.email,
+        password:userdata.password
     }
    
-    e.preventDefault()
-   
+
 try {
 
     
@@ -45,10 +64,7 @@ try {
 
             toast.error(data.message)
         }
-       setfirstname("")
-       setlastname("")
-       setemail("")
-       setpassword("")
+      
         
     }
         
@@ -62,38 +78,53 @@ catch (error) {
     }
     return (
         <div className="creat-container">
-           
+    <Form onSubmit={handleSubmit} className="form">    
 
-    <Form.Group >
+       <Form.Group  >
         <Form.Label>First Name:</Form.Label>
-        <Form.Control onChange={(e)=>setfirstname(e.target.value)} 
-            value={fristname}
-            placeholder="first name"  />
+        <Form.Control 
+        name="firstname"
+        value={values.firstname}
+        onChange={handleChange} 
+        placeholder="first name"  />
       </Form.Group>
+      {errors.firstname? <p style={{color:"crimson"}}>{errors.firstname}</p>:""}
 
       <Form.Group >
         <Form.Label>last Name:</Form.Label>
-        <Form.Control placeholder="last name" onChange={(e)=>setlastname(e.target.value)} 
-          value={lastname}
-        />
+        <Form.Control placeholder="last name" 
+        name="lastname"
+        value={values.lastname}
+        onChange={handleChange} 
+          />
       </Form.Group>
-
+      {errors.lastname? <p style={{color:"crimson"}}>{errors.lastname}</p>:""}
    <Form.Group  controlId="formBasicEmail">
         <Form.Label >Email</Form.Label>
         <Form.Control type="email" placeholder="Enter email"
-          onChange={(e)=>setemail(e.target.value)}
-         value={email}
+         name="email"
+         value={values.email}
+         onChange={handleChange}
+         
         />
         </Form.Group>
+        {errors.email? <p style={{color:"crimson"}}>{errors.email}</p>:""}
 
         <Form.Group  controlId="formBasicPassword">
         <Form.Label >password</Form.Label><br></br>
         <Form.Control  type="password" placeholder="password" 
-        onChange={(e)=>setpassword(e.target.value)}
-        value={password}  />
-        </Form.Group>
-  
-        <button onClick={createuser} className="create-btn">Sign up</button> 
+       
+        name="password"
+        value={values.password} 
+        onChange={handleChange} 
+        
+        />
+        </Form.Group><br></br>
+
+        {errors.password? <p style={{color:"crimson"}}>{errors.password}</p>:""}
+        <button className="create-btn" type="submit">submit</button>
+        
+        </Form> 
 
         </div>
     )
