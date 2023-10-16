@@ -24,7 +24,17 @@ try {
 })
 
 
+useRouter.get("/start",async((req,res)=>{
+    try {
+       res.status(200).send("your app server Start") 
+    } catch (error) {
+        res.status(500).send({
+            message:"internal server error"
+        })
+        
+    }
 
+}))
 
 
 
