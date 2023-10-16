@@ -24,7 +24,7 @@ try {
 })
 
 
-useRouter.get("/start",async((req,res)=>{
+useRouter.get("/start",async(req,res)=>{
     try {
        res.status(200).send("your app server Start") 
     } catch (error) {
@@ -34,7 +34,7 @@ useRouter.get("/start",async((req,res)=>{
         
     }
 
-}))
+})
 
 
 
