@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Creaturl (){
+  
+    
+  
   const url="https://develogin.onrender.com/api/"
   const history=useHistory();
   const [weburl,setweburl]=useState("")
@@ -15,7 +18,7 @@ function Creaturl (){
            full:shorturl
         }
   try {
-    const response = await fetch("http://localhost:1800/api/createurl",{
+    const response = await fetch("https://develogin.onrender.com/api/createurl",{
         method:"POST",
         body:JSON.stringify(longurl),
         headers:{
@@ -23,7 +26,7 @@ function Creaturl (){
         }
     })
     const data = await response.json();
-    setweburl(data.newshorturl.shorturl)
+    setweburl(url+data.newshorturl.shorturl)
     
   } catch (error) {
     console.log(error)
@@ -35,12 +38,13 @@ function Creaturl (){
         <div>
           <div className="signup">
         <button onClick={()=>history.push("/loginurl")} className='log-btn'>login</button>
+        <button onClick={()=>history.push("/create")}  className='sign-btn'>signup</button>
        </div >
        <div className='form-container'>
         <Form>
 
         <Form.Group  controlId="formBasicEmail">
-        <Form.Label >Enter your url</Form.Label>
+        <Form.Label style={{color:"red"}} >Enter your url</Form.Label>
 
         <Form.Control  placeholder="Enter url" 
         onChange={(e)=>setshorturl(e.target.value)} value={shorturl} />
@@ -51,7 +55,7 @@ function Creaturl (){
         submit</Button>
 
       <Form.Group  controlId="formBasicEmail">
-      <Form.Label > short url</Form.Label>
+      <Form.Label  style={{color:"red"}}> short url</Form.Label>
       <Form.Control  placeholder='short url'
        value={weburl} />
         </Form.Group>

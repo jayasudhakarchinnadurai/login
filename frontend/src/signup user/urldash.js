@@ -52,7 +52,7 @@ function Dashurl(){
   
     const geturl =async ()=>{
         try {
-           const response = await fetch("http://localhost:1800/api/geturl",{
+           const response = await fetch("https://develogin.onrender.com/api/geturl",{
             method:"GET",
            }) 
            const data = await response.json();
