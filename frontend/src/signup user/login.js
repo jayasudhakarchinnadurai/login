@@ -57,12 +57,12 @@ function Login(){
         <Form.Label >Email</Form.Label>
         <Form.Control type="email" placeholder="Enter email"
          onChange={(e)=>setlogemail(e.target.value)}/>
-        </Form.Group>
+        </Form.Group><br></br><br></br>
 
        <Form.Group  controlId="formBasicPassword">
         <Form.Label >password</Form.Label><br></br>
         <Form.Control  type="password" placeholder="password"  onChange={(e)=>setlogpass(e.target.value)} />
-        </Form.Group><br></br>
+        </Form.Group><br></br><br></br>
         <Button variant="primary"  onClick={loginuser} className="login-btn" >
         Login
          </Button><br></br><br></br>
