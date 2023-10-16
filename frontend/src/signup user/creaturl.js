@@ -59,7 +59,7 @@ function Creaturl (){
       <Form.Control  placeholder='short url'
        value={weburl} />
         </Form.Group>
-      <a  className='url-click'  href={url+weburl}>click</a>
+      <a  className='url-click'  href={weburl}>click</a>
 
    </Form>
    </div>
